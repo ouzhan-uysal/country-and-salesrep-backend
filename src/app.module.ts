@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
+import { CountriesModule } from './countries/countries.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { join } from 'path';
       synchronize: true,
       logging: true,
     }),
+    CountriesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
