@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Query } from '@nestjs/common';
+import { BadRequestException, Controller, Get, Param, Query } from '@nestjs/common';
 import { CountriesService } from './countries.service';
 import { Countries } from './countries.entity';
 
@@ -10,6 +10,10 @@ export class CountriesController {
 
   @Get()
   async getAllCountries(@Query('region') region?: string): Promise<Array<Countries>> {
-    return await this.countriesService.findAll(region);
+    try {
+      return await this.countriesService.findAll(region);
+    } catch (err) {
+      throw new BadRequestException(err);
+    }
   }
 }
