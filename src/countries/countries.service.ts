@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Countries } from './countries.entity';
-import { FindOperator, Like, MongoRepository } from 'typeorm';
+import { MongoRepository } from 'typeorm';
 
 @Injectable()
 export class CountriesService {
@@ -11,8 +11,8 @@ export class CountriesService {
 
   async findAll(region?: string): Promise<Array<Countries>> {
     if (region) {
-      return this.countriesRepository.find({ region: region })
+      return await this.countriesRepository.find({ region: region })
     }
-    return this.countriesRepository.find();
+    return await this.countriesRepository.find();
   }
 }

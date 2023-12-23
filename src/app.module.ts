@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 import { CountriesModule } from './countries/countries.module';
+import { SalesrepModule } from './salesrep/salesrep.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { CountriesModule } from './countries/countries.module';
       logging: true,
     }),
     CountriesModule,
+    SalesrepModule,
   ],
   controllers: [AppController],
   providers: [AppService],

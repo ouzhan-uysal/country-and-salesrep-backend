@@ -9,7 +9,7 @@ export class CountriesController {
   ) { }
 
   @Get()
-  async getAllCountries(@Query('region') region: string): Promise<Array<Countries>> {
+  async getAllCountries(@Query('region') region?: string): Promise<Array<Countries>> {
     return await this.countriesService.findAll(region);
   }
 }
