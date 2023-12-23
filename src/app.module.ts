@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 import { CountriesModule } from './countries/countries.module';
 import { SalesrepModule } from './salesrep/salesrep.module';
+import { OptimalModule } from './optimal/optimal.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { SalesrepModule } from './salesrep/salesrep.module';
     }),
     CountriesModule,
     SalesrepModule,
+    OptimalModule,
   ],
   controllers: [AppController],
   providers: [AppService],
