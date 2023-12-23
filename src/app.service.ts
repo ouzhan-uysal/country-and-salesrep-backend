@@ -2,7 +2,13 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  healthCheck(): {
+    status: boolean;
+    message: string;
+  } {
+    return {
+      status: true,
+      message: 'V-Count API is working...',
+    };
   }
 }
